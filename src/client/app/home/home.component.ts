@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NameListService } from '../shared/name-list/name-list.service';
+import {RequestsService} from "../requests.service";
+import {map} from 'rxjs/operator/map';
+import {Observable} from 'rxjs/Observable';
+import { CommonModule } from "@angular/common";
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -12,45 +15,28 @@ import { NameListService } from '../shared/name-list/name-list.service';
 })
 export class HomeComponent implements OnInit {
 
-  newName = '';
-  errorMessage: string;
-  names: any[] = [];
+  ids:any;
+  response:any;
 
-  /**
-   * Creates an instance of the HomeComponent with the injected
-   * NameListService.
-   *
-   * @param {NameListService} nameListService - The injected NameListService.
-   */
-  constructor(public nameListService: NameListService) {}
 
-  /**
-   * Get the names OnInit
-   */
+
+  constructor(public rq: RequestsService) {}
+
+
   ngOnInit() {
-    this.getNames();
+    console.log("xxxxxx")
+    this.rq.requests().subscribe(res=>{
+      this.ids = res.map(res=>res);
+      console.log(res);
+      this.response = res.map(res=>res.responseRequest);
+      console.log(this.response);
+
+    })
+
+
+
   }
 
-  /**
-   * Handle the nameListService observable
-   */
-  getNames() {
-    this.nameListService.get()
-      .subscribe(
-        names => this.names = names,
-        error => this.errorMessage = <any>error
-      );
-  }
 
-  /**
-   * Pushes a new name onto the names array
-   * @return {boolean} false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    // TODO: implement nameListService.post
-    this.names.push(this.newName);
-    this.newName = '';
-    return false;
-  }
 
 }
