@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {IMyDateModel} from "mydatepicker";
+import {IMyDateModel, IMyDpOptions} from "mydatepicker";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 /**
  * This class represents the lazy loaded AboutComponent.
@@ -11,7 +12,18 @@ import {IMyDateModel} from "mydatepicker";
   styleUrls: ['about.component.css']
 })
 export class AboutComponent {
-
+  public myDatePickerOptions: IMyDpOptions = {
+    // other options...
+    dateFormat: 'dd.mm.yyyy',
+  };
+  onDateChanged(event: IMyDateModel) {
+    // event properties are: event.date, event.jsdate, event.formatted and event.epoc
+  };
+  onDateChanged2(event: IMyDateModel) {
     // event properties are: event.date, event.jsdate, event.formatted and event.epoc
   }
+
+
+
+
 
