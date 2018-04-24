@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import {RequestsService} from "./requests.service";
 import {FormsModule} from "@angular/forms";
+import {searchByUserNameService} from "./searchByUserName.service";
 
 
 
@@ -20,7 +21,7 @@ import {FormsModule} from "@angular/forms";
     SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [
-    RequestsService,CommonModule
+    RequestsService,CommonModule,searchByUserNameService
 
   ],
   bootstrap: [AppComponent]

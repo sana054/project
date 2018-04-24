@@ -8,44 +8,33 @@
 <div ng-app="sample">
   <form class="form-horizontal" name="registerForm">
     <div class="form-group">
-      <label class="col-md-3 control-label" for="Email">userName</label>
       <div class="col-md-4">
-        <input id="Email" type="email" class="form-control" name="Email" ng-model="Email" />
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="Password">correlationId</label>
-      <div class="col-md-4">
-        <input id="Password" type="password" class="form-control" name="Password" ng-model="Password" />
-      </div>
-    </div>
-    <fieldset>
-      <legend>Choose your plateforme</legend>
-      <div>
-        <input type="checkbox" id="coding" name="interest" value="coding">
-        <label for="coding">cpr</label>
-      </div>
-      <div>
-        <input type="checkbox" id="music" name="interest" value="music">
-        <label for="music">Mu</label>
-      </div>
-    </fieldset>
-    <div class="form-group">
-      <div class="col-md-offset-3 col-md-9">
-        <input type="submit" class="btn btn-default" value="search" />
-      </div>
-    </div>
-    <my-date-picker [options]="myDatePickerOptions"
-                    (dateChanged)="onDateChanged($event)"></my-date-picker>
+      <label class="col-md-3 control-label" for="userName">User Name</label>
 
-    <my-date-picker [options]="myDatePickerOptions"
-                    (dateChanged)="onDateChanged2($event)"></my-date-picker>
+        <input id="userName" type="userName" class="form-control" name="Email" [(ngModel)]="userName" />
+
+
+
+
+        <input type="submit" class="btn btn-default" (click)="getResult()" value="search" />
+      </div>
+    </div>
+
 
 
   </form>
 
 
 </div>
+<div>
+  <ul *ngFor=" let id of ids ">
+    <li   > Id : {{ id.id}}</li>
+    <li>ResponseRequest :{{id.responseRequest}}</li>
+
+  </ul>
+</div>
+
+
 </body>
 </html>
 

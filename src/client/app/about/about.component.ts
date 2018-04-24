@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IMyDateModel, IMyDpOptions} from "mydatepicker";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {searchByUserNameService} from "../searchByUserName.service";
 
 /**
  * This class represents the lazy loaded AboutComponent.
@@ -11,17 +12,35 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: 'about.component.html',
   styleUrls: ['about.component.css']
 })
+
 export class AboutComponent {
-  public myDatePickerOptions: IMyDpOptions = {
-    // other options...
-    dateFormat: 'dd.mm.yyyy',
-  };
-  onDateChanged(event: IMyDateModel) {
-    // event properties are: event.date, event.jsdate, event.formatted and event.epoc
-  };
-  onDateChanged2(event: IMyDateModel) {
-    // event properties are: event.date, event.jsdate, event.formatted and event.epoc
+  userName :String;
+  ids:any;
+  response:any;
+
+
+
+constructor(private _user: searchByUserNameService)
+{
+
+}
+
+getResult() {
+  this._user.searchByUserName(this.userName)
+    .subscribe(res => {
+      this.ids = res.map(res => res);
+      console.log(res);
+      this.response = res.map(res => res.responseRequest);
+      console.log(this.response);
+      console.log(this.userName);
+
+    })
+
+}
+
+
   }
+
 
 
 
