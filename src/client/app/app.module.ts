@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 import {RequestsService} from "./requests.service";
 import {FormsModule} from "@angular/forms";
 import {searchByUserNameService} from "./searchByUserName.service";
+import {getElementByDateService} from "./getElementByDate.service";
 
 
 
@@ -21,7 +22,7 @@ import {searchByUserNameService} from "./searchByUserName.service";
     SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [
-    RequestsService,CommonModule,searchByUserNameService
+    RequestsService,CommonModule,searchByUserNameService,getElementByDateService
 
   ],
   bootstrap: [AppComponent]
