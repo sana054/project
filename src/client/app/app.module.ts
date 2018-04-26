@@ -7,22 +7,24 @@ import { CommonModule } from "@angular/common";
 import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
+import { SearchModule } from './search/search.module';
 import { CoreModule } from './core/core.module';
 import {RequestsService} from "./requests.service";
 import {FormsModule} from "@angular/forms";
 import {searchByUserNameService} from "./searchByUserName.service";
 import {getElementByDateService} from "./getElementByDate.service";
+import {anySearchService} from "./AnySearch.service";
 
 
 
 @NgModule({
   imports: [BrowserModule, CoreModule,
     HttpClientModule, AppRoutingModule, FormsModule,
-    AboutModule, HomeModule,
+    AboutModule, HomeModule,SearchModule,
     SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [
-    RequestsService,CommonModule,searchByUserNameService,getElementByDateService
+    RequestsService,CommonModule,searchByUserNameService,getElementByDateService,anySearchService
 
   ],
   bootstrap: [AppComponent]
