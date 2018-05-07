@@ -497,7 +497,7 @@ export class SeedConfig {
       '@angular/animations/browser':
         'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       'tslib': 'node_modules/tslib/tslib.js',
-
+      'primeng': `${this.APP_BASE}node_modules/primeng`,
       '@angular/common/testing':
         'node_modules/@angular/common/bundles/common-testing.umd.js',
       '@angular/common/http/testing':

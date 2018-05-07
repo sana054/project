@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import {IMyDateModel, IMyDpOptions} from "mydatepicker";
 import {getElementByDateService} from "../getElementByDate.service";
 import {anySearchService} from "../AnySearch.service";
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 /**
@@ -33,7 +34,7 @@ export class SearchComponent implements OnInit {
  //ngOnInit() {
 
 
- //  })
+  // })
 
 
 
@@ -46,6 +47,7 @@ export class SearchComponent implements OnInit {
         this.response = res.map(res => res.responseRequest);
         console.log(this.response);
         console.log(this.userName);
+
 
       })
 

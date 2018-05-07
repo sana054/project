@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   dateDebut:any;
   dateFin:any;
 
-
+  dtOptions: DataTables.Settings = {};
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'yyyy/mm/dd',
@@ -32,18 +32,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private _user: getElementByDateService) {
 
+
   }
 
 
- // ngOnInit() {
-  //  console.log("xxxxxx")
-  //  this.rq.requests().subscribe(res=>{
-  //    this.ids = res.map(res=>res);
-  //    console.log(res);
-   //   this.response = res.map(res=>res.responseRequest);
-  //    console.log(this.response);
 
-   // })
+
+
+
+
 
 
 

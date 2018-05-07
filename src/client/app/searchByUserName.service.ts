@@ -8,9 +8,9 @@ import 'rxjs/add/operator/map';
 export class searchByUserNameService {
 
   constructor(private _http: HttpClient) { }
-  searchByUserName(CorrelationId: String) :any{
+  searchByUserName(CorrelationId: String,UserName:String) :any{
 
-    return this._http.get("http://localhost:8080/requests/"+CorrelationId)
+    return this._http.get("http://localhost:8080/recherche?CorrelationId="+CorrelationId+"&UserName="+UserName)
       .map(result => result);
 
 

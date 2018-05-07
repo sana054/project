@@ -6,6 +6,8 @@
     "clean.once",
     "tslint",
     "build.assets.dev",
+    "build.fonts",
+    "build.css_images",  //<< new task
     "build.html_css",
     "build.js.dev",
     "build.index.dev",
@@ -20,6 +22,10 @@
     "clean.prod",
     "tslint",
     "build.assets.prod",
+    "build.assets.prod",
+    "build.fonts",
+    "build.css_images",  //<< new task
+
     "build.html_css",
     "copy.prod",
     "build.js.prod",

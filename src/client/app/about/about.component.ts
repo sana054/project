@@ -17,6 +17,7 @@ export class AboutComponent {
   userName :String;
   ids:any;
   response:any;
+  correlationID :String;
 
 
 
@@ -26,7 +27,7 @@ constructor(private _user: searchByUserNameService)
 }
 
 getResult() {
-  this._user.searchByUserName(this.userName)
+  this._user.searchByUserName(this.correlationID,this.userName)
     .subscribe(res => {
       this.ids = res.map(res => res);
       console.log(res);

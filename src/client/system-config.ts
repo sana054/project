@@ -9,9 +9,11 @@ System.config(JSON.parse('<%= SYSTEM_CONFIG_DEV %>'));
     map: {
       // Other components are here...
 
-      'mydatepicker': 'npm:mydatepicker/bundles/mydatepicker.umd.min.js'
+      'mydatepicker': 'npm:mydatepicker/bundles/mydatepicker.umd.min.js',
+
     },
     packages: {
+
     }
   });
 })(this);
