@@ -14,6 +14,8 @@ import {FormsModule} from "@angular/forms";
 import {searchByUserNameService} from "./searchByUserName.service";
 import {getElementByDateService} from "./getElementByDate.service";
 import {anySearchService} from "./AnySearch.service";
+import {PlateformService} from "./Plateform.service";
+
 
 
 
@@ -22,10 +24,10 @@ import {anySearchService} from "./AnySearch.service";
   imports: [BrowserModule, CoreModule,
     HttpClientModule, AppRoutingModule, FormsModule,
     AboutModule, HomeModule,SearchModule,
-    SharedModule.forRoot()],
+    SharedModule.forRoot(), ],
   declarations: [AppComponent],
   providers: [
-    RequestsService,CommonModule,searchByUserNameService,getElementByDateService,anySearchService
+    RequestsService,CommonModule,searchByUserNameService,getElementByDateService,anySearchService,PlateformService,
 
   ],
   bootstrap: [AppComponent]

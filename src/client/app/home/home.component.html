@@ -1,43 +1,63 @@
-<!DOCTYPE  html>
-<html lang="en">
-<body>
-
-<div ng-app="sample">
-  <form class="form-horizontal" name="registerForm">
-
-
-    <my-date-picker [options]="myDatePickerOptions"
-                    (dateChanged)="onDateChanged($event)">
-
-    </my-date-picker>
-
-    <my-date-picker [options]="myDatePickerOptions"
-                    (dateChanged)="onDateChanged2($event)"></my-date-picker>
+<div    class="container transparent marge">
 
 
 
-    <div class="form-group">
-      <div class="col-md-offset-3 col-md-9">
-        <input type="submit" class="btn btn-default" value="search" (click)="getdate()" />
+  <div>
+    <label for="c-form-profession">
+      <span class="labelText">Choose your plateform:</span>
+      <span class="contact-error"></span>
+    </label>
+
+    <pre>{{selectedPlatformList | json}}</pre>
+
+    <span class="labelText">Plateform1:</span>
+    <p-selectButton multiple="multiple" [options]="platformItemList" [(ngModel)]="selectedPlatformList"
+    ></p-selectButton>
+
+    <div *ngFor="let platform of selectedPlatformList">
+
+      <div *ngFor="let parameterKey of platform.params | keys; let i = index;">
+      <label>{{platform.params[parameterKey]}}</label> : <input type="text">
+
+
+
+    <!--  <select  name="parametres" class="c-form-profession form-control" id="parametres"  >
+        <option value="{{platform.params[parameterKey]}}" ></option>
+
+      </select>!-->
       </div>
+</div>
+    <div>
+
+      <form  role="form">
+        <div  class="form-group">
+          <label for="c-form-name">
+
+
+            <span class="contact-error"></span>
+          </label>
+          <input type="text" name="IssueID" placeholder="IssueID..." class="c-form-name form-control" id="c-form-name">
+        </div>
+        <div class="form-group">
+          <my-date-picker [options]="myDatePickerOptions"
+                          (dateChanged)="onDateChanged($event)">
+          </my-date-picker>
+        </div>
+        <div class="form-group">
+          <my-date-picker [options]="myDatePickerOptions"
+                          (dateChanged)="onDateChanged2($event)"></my-date-picker>
+        </div>
+
+
+        <button type="submit" class="button">START</button>
+
+      </form>
     </div>
 
-  </form>
+
+
+
+  </div>
 
 </div>
-
-
-<div>
-
-  <ul *ngFor=" let id of ids ">
-    <li> Id : {{ id.id}}</li>
-    <li>ResponseRequest :{{id.responseRequest}}</li>
-  </ul>
-</div>
-</body>
-</html>
-
-
-
-
 

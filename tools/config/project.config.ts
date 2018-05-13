@@ -44,6 +44,10 @@ export class ProjectConfig extends SeedConfig {
       { src: 'primeng/resources/primeng.css', inject: true },
       { src: 'primeng/resources/themes/bootstrap/theme.css', inject: true },
       { src: 'font-awesome/css/font-awesome.min.css', inject: true },
+      {src:  'C:\\Users\\cheff\\Desktop\\project\\node_modules\\datatables.net-dt\\css\\jquery.dataTables.css', inject: true},
+      {src: 'C:\\Users\\cheff\\Desktop\\project\\node_modules\\jquery\\dist\\jquery.js',inject: 'libs'},
+      {src: 'C:\\Users\\cheff\\Desktop\\project\\node_modules\\datatables.net\\js\\jquery.dataTables.js',inject: 'libs'},
+      {src:'C:\\Users\\cheff\\Desktop\\project\\node_modules\\bootstrap\\dist\\css\\bootstrap.css', inject: true}
 
     ];
 
@@ -67,12 +71,35 @@ export class ProjectConfig extends SeedConfig {
 
 
     const additionalPackages: ExtendPackages[] = [{
-      name: 'primeng',
-      path: 'node_modules/primeng',
+      name: 'jquery',
+      path: 'node_modules/jquery',
       packageMeta: {
         defaultExtension: 'js'
       }
-    }];
+    },{
+      name: 'DataTablesModule',
+      path: 'angular-datatables',
+      packageMeta: {
+      defaultExtension: 'js'
+    }
+  },
+      {
+        name: 'InputTextModule',
+        path: 'inputtext',
+        packageMeta: {
+          defaultExtension: 'js'
+        }
+
+      },
+      {
+        name: 'MultiSelectModule',
+        path: 'multiselect',
+        packageMeta: {
+          defaultExtension: 'js'
+        }
+
+      }
+    ];
 
 
     this.addPackagesBundles(additionalPackages);

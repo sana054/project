@@ -2,7 +2,9 @@
   display: block;
   padding: 0 16px;
 }
-
+.red{
+  background-color: red;
+}
 input {
   width: 250px;
 }
@@ -10,4 +12,52 @@ input {
 ul {
   list-style-type: none;
   padding: 0 0 0 8px;
+}
+
+.c-form-box select.form-control {
+
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #fff;
+  border: 3px solid #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #888;
+  font-style: italic;
+  -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+  -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.c-form-box select.form-control:focus {
+  outline: 0; background: #fff; border: 3px solid aquamarine;
+  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+.labelText{
+  color: white;
+}
+.c-form-name form-control{
+horiz-align: center;
+}
+.form-control {
+  display: block;
+  margin-left: 25%;
+  width: 250px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.inputCheckBox{
+  width: 1000px;
+  box-sizing:revert;
 }

@@ -28,7 +28,7 @@ constructor(private _user: searchByUserNameService)
 
 getResult() {
   this._user.searchByUserName(this.correlationID,this.userName)
-    .subscribe(res => {
+    .subscribe((res:any[]) => {
       this.ids = res.map(res => res);
       console.log(res);
       this.response = res.map(res => res.responseRequest);

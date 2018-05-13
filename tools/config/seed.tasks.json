@@ -4,7 +4,6 @@
   "build.dev": [
     "initialize",
     "clean.once",
-    "tslint",
     "build.assets.dev",
     "build.fonts",
     "build.css_images",  //<< new task
@@ -20,7 +19,6 @@
     "initialize",
     "check.tools",
     "clean.prod",
-    "tslint",
     "build.assets.prod",
     "build.assets.prod",
     "build.fonts",
@@ -41,7 +39,6 @@
     "initialize",
     "check.tools",
     "clean.prod",
-    "tslint",
     "build.assets.prod",
     "build.html_css",
     "copy.prod",
@@ -59,7 +56,6 @@
     "initialize",
     "check.tools",
     "clean.prod",
-    "tslint",
     "build.assets.prod",
     "build.html_css",
     "copy.prod.rollup.aot",

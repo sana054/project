@@ -1,4 +1,5 @@
 /* Reset */
+@import '~bootstrap/dist/css/bootstrap.min.css';
 html, body, div {
   border: 0;
   margin: 0;
@@ -9,10 +10,17 @@ html, body {
   height: 100%;
   width: 100%;
 }
+my-date-picker{
+  width:50%;
+
+}
 
 body {
   display: flex;
   flex-direction: column;
+
+  background: linear-gradient(#ced4da,white);
+ /*background-image: url("https://image.freepik.com/free-psd/abstract-background-design_1297-87.jpg");*/
 }
 
 /* Box-sizing border-box */
@@ -27,7 +35,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+div.mydp{
 
+  width: 28% !important;
+  margin-left: 28% !important;
+  margin-bottom:10px;
+}
+.ui-inputtext{
+  margin-left: 35% !important;
+  margin-bottom:10px;
+
+}
 p {
   font-weight: 400;
   letter-spacing: 0.01em;
@@ -64,8 +82,17 @@ button {
   height: 40px;
   padding: 8px 18px;
   text-decoration: none;
+  margin-bottom:10px;
+  horiz-align: center;
 }
 
 button:hover {
   background-color: #28739e;
+}
+.transparent{
+  background: linear-gradient(#0e172a,#456785);
+}
+.marge{
+  width: 50%;
+  height: 100%;
 }

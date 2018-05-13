@@ -498,6 +498,7 @@ export class SeedConfig {
         'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       'tslib': 'node_modules/tslib/tslib.js',
       'primeng': `${this.APP_BASE}node_modules/primeng`,
+
       '@angular/common/testing':
         'node_modules/@angular/common/bundles/common-testing.umd.js',
       '@angular/common/http/testing':
@@ -520,9 +521,18 @@ export class SeedConfig {
       '': 'node_modules/',
     },
     packages: {
+      primeng: { defaultExtension: 'js' },
+      [this.BOOTSTRAP_DIR]: {
+        defaultExtension: 'js'
+      },
+      ui: { defaultExtension: 'js' },
       [this.BOOTSTRAP_DIR]: {
         defaultExtension: 'js'
       }
+
+
+
+
     }
   };
 

@@ -19,6 +19,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
   styleUrls: ['search.component.css'],
 })
 export class SearchComponent implements OnInit {
+  ngOnInit(): void {
+  }
 
   userName :String;
   ids:any;
@@ -41,10 +43,12 @@ export class SearchComponent implements OnInit {
 
   find() {
     this._user.anySearch(this.userName)
-      .subscribe(res => {
-        this.ids = res.map(res => res);
+      .subscribe((res:any) => {
+        this.ids = res.map((res:any) => res);
         console.log(res);
-        this.response = res.map(res => res.responseRequest);
+        this.response = res.map((res:any) => res.responseRequest);
+
+
         console.log(this.response);
         console.log(this.userName);
 
