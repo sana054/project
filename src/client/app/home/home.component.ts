@@ -24,29 +24,8 @@ import {PlateformService} from "../Plateform.service";
 
 export class HomeComponent implements OnInit {
 
- ngOnInit(): void {
-    this.platformItemList=this.platformList.map((platform:any)=> {
-      return {label: platform.plateformName, value: platform}
-    });
-  }
+  platformList:string[] = [];
   platformItemList:SelectItem[];
-  platformList=[
-    {
-      "id": 1,
-      "params": {
-        "1": "correlation",
-        "2": "requestID"
-      },
-      "plateformName": "PF"
-    },
-    {
-      "id": 2,
-      "params": {
-        "3": "UserName"
-      },
-      "plateformName": "PF2"
-    }
-  ];
 
 
   selectedPlatformList:any[];
@@ -57,30 +36,40 @@ export class HomeComponent implements OnInit {
   dateDebut:any;
   dateFin:any;
   res:any;
+  platforms:any;
   plateformName:string="aaaa";
-      params:string[] = [];
-  platformListt:string[] = [];
+  params:string[] = [];
 
-  selectedCars1: string;
-  public shown = false;
 
- // selectedCars2: string[] = [];
+
+
+
+
 
 
   dtOptions: {};
+  constructor(private _plateform: PlateformService) {}
+ ngOnInit(): void {
+    this._plateform.getPlateforms().subscribe((res:any)=>{this.platforms=res;
+      console.log(this.platforms);
+      this.platformList=this.platforms;
+      this.platformItemList=this.platformList.map((platform:any)=> {
+        return {label: platform.plateformName, value: platform}})
+
+
+
+
+    });
+
+  }
+
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'yyyy/mm/dd',
   };
   public model: any = { date: { year: 2018, month: 10, day: 9 } };
 
-  constructor(private _plateform: PlateformService) {
 
-
-
-
-
-  }
 
 
 
@@ -119,18 +108,7 @@ export class HomeComponent implements OnInit {
       })
 
   }*/
-  /*getPlateform(){
-    this._plateform.getPlateforms().subscribe((res:any) => {
-      this. platformItemList = res.map((platform:any)=> {
-        return {label: platform.plateformName, value: platform}
 
-      })
-
-    });
-
-
-
-  }*/
 
 
 

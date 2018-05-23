@@ -18,6 +18,7 @@ export class AboutComponent {
   ids:any;
   response:any;
   correlationID :String;
+  selectedOne:any;
 
 
 

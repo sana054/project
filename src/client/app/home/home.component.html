@@ -8,30 +8,36 @@
       <span class="contact-error"></span>
     </label>
 
-    <pre>{{selectedPlatformList | json}}</pre>
+
 
     <span class="labelText">Plateform1:</span>
-    <p-selectButton multiple="multiple" [options]="platformItemList" [(ngModel)]="selectedPlatformList"
-    ></p-selectButton>
-
+    <p-selectButton multiple="multiple" [options]="platformItemList" [(ngModel)]="selectedPlatformList"></p-selectButton>
     <div *ngFor="let platform of selectedPlatformList">
 
-      <div *ngFor="let parameterKey of platform.params | keys; let i = index;">
-      <label>{{platform.params[parameterKey]}}</label> : <input type="text">
+      <div *ngFor="let parameterKey of platform.params | keys; ">
 
-
-
+        <div *ngIf="parameterKey.key==='String'">
+      <label>{{parameterKey.value}}</label> : <input type="text">
+        </div>
+        <div *ngIf="parameterKey.key==='Date'">
+          <my-date-picker [options]="myDatePickerOptions"
+                          (dateChanged)="onDateChanged($event)">
+          </my-date-picker>
+        </div>
     <!--  <select  name="parametres" class="c-form-profession form-control" id="parametres"  >
         <option value="{{platform.params[parameterKey]}}" ></option>
 
       </select>!-->
-      </div>
+
 </div>
+    </div>
+
+  </div>
     <div>
 
       <form  role="form">
         <div  class="form-group">
-          <label for="c-form-name">
+          <label class="c-form-name">
 
 
             <span class="contact-error"></span>
@@ -56,8 +62,6 @@
 
 
 
-
-  </div>
 
 </div>
 

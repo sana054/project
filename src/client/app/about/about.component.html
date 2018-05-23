@@ -28,16 +28,29 @@
   </form>
 
 
+
 </div>
-<div>
+<!--<div>
   <ul *ngFor=" let id of ids ">
     <li   > Id : {{ id.id}}</li>
     <li>ResponseRequest :{{id.responseRequest}}</li>
 
   </ul>
+</div>!-->
+<div>
+<p-dataTable *ngFor=" let id of ids"  selectionMode="multiple"  [value]="ids" [(selection)]="selectedOne" dataKey="vin" [paginator]="true" [rows]="5" [headerCheckboxToggleAllPages]="true">
+  <p-header>Checkbox Multiple Selection with Paging</p-header>
+  <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+  <p-column field="id" header="Vin"></p-column>
+  <p-column field="responseRequest" header="Year"></p-column>
+
+  <p-footer>
+    <<ul>
+      <li *ngFor=" let id of selectedOne" style="text-align: left">{{ id.id + ' - ' + id.responseRequest }}</li>
+    </ul>
+  </p-footer>
+</p-dataTable>
 </div>
-
-
 </body>
 </html>
 
