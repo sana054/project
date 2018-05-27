@@ -6,10 +6,10 @@ import {IMyDpOptions, MyDatePickerModule} from 'mydatepicker';
 import {FormBuilder, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {DataTableModule} from 'primeng/datatable';
 import { TableModule } from 'primeng/table';
-
+import{SplitButtonModule} from "primeng/primeng";
 
 @NgModule({
-  imports: [CommonModule, AboutRoutingModule, MyDatePickerModule,FormsModule,DataTableModule,TableModule],
+  imports: [CommonModule, AboutRoutingModule, MyDatePickerModule,FormsModule,DataTableModule,TableModule,SplitButtonModule],
   declarations: [AboutComponent],
   exports: [AboutComponent]
 })
