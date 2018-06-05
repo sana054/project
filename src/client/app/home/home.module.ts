@@ -11,11 +11,14 @@ import {DropdownModule} from 'primeng/dropdown';
 
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {KeysPipe} from './KeysPipe';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {UniqueKeys} from "./UniqueKeys";
+import {CalendarModule} from "primeng/components/calendar/calendar";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
-  imports: [HomeRoutingModule, SharedModule,MyDatePickerModule,DataTableModule,InputTextModule,MultiSelectModule,DropdownModule,SelectButtonModule],
-  declarations: [HomeComponent,KeysPipe],
+  imports: [BrowserAnimationsModule,CalendarModule,HomeRoutingModule, SharedModule,MyDatePickerModule,DataTableModule,InputTextModule,ReactiveFormsModule,MultiSelectModule,DropdownModule,SelectButtonModule],
+  declarations: [HomeComponent,KeysPipe,UniqueKeys],
   exports: [HomeComponent],
   providers: [NameListService]
 })

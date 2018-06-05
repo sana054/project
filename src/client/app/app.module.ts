@@ -15,7 +15,7 @@ import {searchByUserNameService} from "./searchByUserName.service";
 import {getElementByDateService} from "./getElementByDate.service";
 import {anySearchService} from "./AnySearch.service";
 import {PlateformService} from "./Plateform.service";
-
+import {SavedResultService} from "./SavedResult.Service";
 
 
 
@@ -27,7 +27,7 @@ import {PlateformService} from "./Plateform.service";
     SharedModule.forRoot(), ],
   declarations: [AppComponent],
   providers: [
-    RequestsService,CommonModule,searchByUserNameService,getElementByDateService,anySearchService,PlateformService,
+    RequestsService,CommonModule,searchByUserNameService,getElementByDateService,anySearchService,PlateformService,SavedResultService,
 
   ],
   bootstrap: [AppComponent]

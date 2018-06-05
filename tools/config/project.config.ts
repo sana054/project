@@ -43,11 +43,15 @@ export class ProjectConfig extends SeedConfig {
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
       { src: 'primeng/resources/primeng.css', inject: true },
       { src: 'primeng/resources/themes/bootstrap/theme.css', inject: true },
-      { src: 'font-awesome/css/font-awesome.min.css', inject: true },
-      {src:  'C:\\Users\\cheff\\Desktop\\project\\node_modules\\datatables.net-dt\\css\\jquery.dataTables.css', inject: true},
+      { src: 'C:\\Users\\cheff\\Desktop\\project\\node_modules\\font-awesome\\css\\font-awesome.min.css', inject: true },
+      {src:  'C:\\Users\\cheff\\Desktop\\project\\node_modules\\primeng\\resources\\primeng.min.css', inject: true},
       {src: 'C:\\Users\\cheff\\Desktop\\project\\node_modules\\jquery\\dist\\jquery.js',inject: 'libs'},
       {src: 'C:\\Users\\cheff\\Desktop\\project\\node_modules\\datatables.net\\js\\jquery.dataTables.js',inject: 'libs'},
-      {src:'C:\\Users\\cheff\\Desktop\\project\\node_modules\\bootstrap\\dist\\css\\bootstrap.css', inject: true}
+      {src:'C:\\Users\\cheff\\Desktop\\project\\node_modules\\bootstrap\\dist\\css\\bootstrap.css', inject: true},
+      {src:'C:\\Users\\cheff\\Desktop\\project\\node_modules\\primeng\\resources\\themes\\omega\\theme.css', inject: true},
+
+
+
 
     ];
 

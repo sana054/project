@@ -1,67 +1,55 @@
-<div    class="container transparent marge">
+<div class="container transparent marge">
 
 
-
-  <div>
-    <label for="c-form-profession">
-      <span class="labelText">Choose your plateform:</span>
-      <span class="contact-error"></span>
-    </label>
-
-
-
-    <span class="labelText">Plateform1:</span>
-    <p-selectButton multiple="multiple" [options]="platformItemList" [(ngModel)]="selectedPlatformList"></p-selectButton>
-    <div *ngFor="let platform of selectedPlatformList">
-
-      <div *ngFor="let parameterKey of platform.params | keys; ">
-
-        <div *ngIf="parameterKey.key==='String'">
-      <label>{{parameterKey.value}}</label> : <input type="text">
-        </div>
-        <div *ngIf="parameterKey.key==='Date'">
-          <my-date-picker [options]="myDatePickerOptions"
-                          (dateChanged)="onDateChanged($event)">
-          </my-date-picker>
-        </div>
-    <!--  <select  name="parametres" class="c-form-profession form-control" id="parametres"  >
-        <option value="{{platform.params[parameterKey]}}" ></option>
-
-      </select>!-->
-
-</div>
-    </div>
-
-  </div>
     <div>
 
-      <form  role="form">
-        <div  class="form-group">
-          <label class="c-form-name">
 
 
-            <span class="contact-error"></span>
-          </label>
-          <input type="text" name="IssueID" placeholder="IssueID..." class="c-form-name form-control" id="c-form-name">
-        </div>
-        <div class="form-group">
+      <span class="labelText">choose Your plateform:</span>
+      <p-selectButton multiple="multiple" [options]="platformItemList"
+                      [(ngModel)]="req['selectedPlatformList']"></p-selectButton>
+      <div *ngFor="let parameterKey of req['selectedPlatformList'] | uniqueKeys">
+
+          <div *ngIf="parameterKey.value==='String'">
+
+            <label>{{parameterKey.key}}</label> : <input type="text" [name]="parameterKey.key"
+                                                         [(ngModel)]="req[parameterKey.key]"
+                                                         [placeholder]="parameterKey.key" >
+
+          </div>
+        <div *ngIf="parameterKey.value==='Date'">
           <my-date-picker [options]="myDatePickerOptions"
+                          [(ngModel)]="req[parameterKey.key]"
                           (dateChanged)="onDateChanged($event)">
           </my-date-picker>
         </div>
-        <div class="form-group">
-          <my-date-picker [options]="myDatePickerOptions"
-                          (dateChanged)="onDateChanged2($event)"></my-date-picker>
-        </div>
 
 
-        <button type="submit" class="button">START</button>
+          <!--  <select  name="parametres" class="c-form-profession form-control" id="parametres"  >
+          <option value="{{platform.params[parameterKey]}}" ></option>
 
-      </form>
+        </select>!-->
+
+      </div>
+      <p-calendar [utc]="true" [(ngModel)]="req['startDate']"></p-calendar>
+      <p-calendar [utc]="true" [(ngModel)]="req['endDate']"></p-calendar>
+
+      <pre>{{req|json}}</pre>
+
+
+
+      <div >
+
+      </div>
+      <div >
+
+      </div>
+
+
+      <button type="submit" icon="fa fa-fw fa-check"   label="START">START</button>
+
+
     </div>
 
 
-
-
 </div>
-

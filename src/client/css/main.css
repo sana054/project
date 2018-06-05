@@ -19,8 +19,8 @@ body {
   display: flex;
   flex-direction: column;
 
-  background: linear-gradient(#ced4da,white);
- /*background-image: url("https://image.freepik.com/free-psd/abstract-background-design_1297-87.jpg");*/
+/*  background: linear-gradient(black,grey);*/
+ background-image: url("https://i.pinimg.com/originals/3d/14/01/3d14010c94acd2a1f6bb983e00e08847.jpg");
 }
 
 /* Box-sizing border-box */
@@ -39,11 +39,22 @@ div.mydp{
 
   width: 28% !important;
   margin-left: 28% !important;
-  margin-bottom:10px;
+  margin:10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 8px;
+
 }
 .ui-inputtext{
   margin-left: 35% !important;
   margin-bottom:10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 30px;
 
 }
 p {
@@ -62,6 +73,9 @@ ul {
 li {
   font-weight: 400;
   margin-top: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 30px;
 }
 
 input {
@@ -69,28 +83,46 @@ input {
   font-size: 14px;
   height: 40px;
   outline: none;
-  padding: 8px;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 30px;
 }
 
 button {
-  background-color: #106cc8;
-  border-style: none;
-  color: rgba(255, 255, 255, 0.87);
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  height: 40px;
-  padding: 8px 18px;
-  text-decoration: none;
-  margin-bottom:10px;
-  horiz-align: center;
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #19b9e7;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #fff;
+  -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+  text-shadow: none;
+  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+  -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+
+
+  margin-right: 25px;
+
+  margin-left: 200px;
 }
 
 button:hover {
   background-color: #28739e;
 }
 .transparent{
-  background: linear-gradient(#0e172a,#456785);
+  padding:82px 113px;
+  margin-top:15px;
+  background: rgba(1,1,1,0.2);
+  color:#fff;
 }
 .marge{
   width: 50%;

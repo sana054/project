@@ -10,6 +10,8 @@ import {SelectItem} from 'primeng/api';
 import {platform} from "os";
 import {anySearchService} from "../AnySearch.service";
 import {PlateformService} from "../Plateform.service";
+import {KeysPipe} from './KeysPipe';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -27,19 +29,25 @@ export class HomeComponent implements OnInit {
   platformList:string[] = [];
   platformItemList:SelectItem[];
 
-
+  list:any =[];
   selectedPlatformList:any[];
   ids:any;
   response:any;
-
-
+  myform: FormGroup;
+req:any={
+  startDate:new Date(),
+  endDate:new Date()
+};
   dateDebut:any;
   dateFin:any;
   res:any;
   platforms:any;
   plateformName:string="aaaa";
-  params:string[] = [];
-
+ // params:string[] = [];
+ // spinner:boolean=false;
+  booleanValue: boolean = true;
+  IssueID:any;
+  params=new FormControl();
 
 
 
@@ -50,16 +58,26 @@ export class HomeComponent implements OnInit {
   dtOptions: {};
   constructor(private _plateform: PlateformService) {}
  ngOnInit(): void {
+   let a =new KeysPipe();
+
     this._plateform.getPlateforms().subscribe((res:any)=>{this.platforms=res;
       console.log(this.platforms);
       this.platformList=this.platforms;
       this.platformItemList=this.platformList.map((platform:any)=> {
-        return {label: platform.plateformName, value: platform}})
+
+
+
+        return {label: platform.plateformName, value: platform}
+
+
+      })
 
 
 
 
     });
+
+
 
   }
 
@@ -94,7 +112,7 @@ export class HomeComponent implements OnInit {
     // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     this.dateFin=event.formatted
   }
- /* getdate() {
+/*getdate() {
 
 
     this._user.searchByDate(this.dateDebut,this.dateFin)
@@ -109,8 +127,17 @@ export class HomeComponent implements OnInit {
 
   }*/
 
+  find(){
 
+
+
+  }
+  getemail(myForm:any) {
+
+
+  console.log(myForm.form.value.inputs); }
 
 
 
 }
+

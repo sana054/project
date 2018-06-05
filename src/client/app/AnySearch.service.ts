@@ -8,9 +8,9 @@ import 'rxjs/add/operator/map';
 export class anySearchService {
 
   constructor(private _http: HttpClient) { }
-  anySearch(param: String) :any{
+  anySearch(IssueID: String) :any{
 
-    return this._http.get("http://localhost:8080/search/"+param)
+    return this._http.get("http://localhost:8080/search/"+IssueID)
       .map(result => result);
 
 

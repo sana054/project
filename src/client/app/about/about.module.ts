@@ -7,9 +7,10 @@ import {FormBuilder, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {DataTableModule} from 'primeng/datatable';
 import { TableModule } from 'primeng/table';
 import{SplitButtonModule} from "primeng/primeng";
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 @NgModule({
-  imports: [CommonModule, AboutRoutingModule, MyDatePickerModule,FormsModule,DataTableModule,TableModule,SplitButtonModule],
+  imports: [CommonModule, AboutRoutingModule, MyDatePickerModule,FormsModule,DataTableModule,TableModule,SplitButtonModule,MessagesModule,MessageModule],
   declarations: [AboutComponent],
   exports: [AboutComponent]
 })

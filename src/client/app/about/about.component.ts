@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {IMyDateModel, IMyDpOptions} from "mydatepicker";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {searchByUserNameService} from "../searchByUserName.service";
+import {SavedResultService} from "../SavedResult.Service";
+import {Result} from "../domain/result";
+import {SavedResult} from "../domain/SavedResult";
 
 
 /**
@@ -16,51 +19,84 @@ import {searchByUserNameService} from "../searchByUserName.service";
 
 export class AboutComponent {
   userName :String;
+  issueID:String;
   ids:any= [];
   requests:any= [];
   responses:any= [];
   response:any= [];
   correlationID :String;
   selectedOne:any;
-  request:any= [];
+  msgs: any[] = [];
+  //request:any= [];
   cols: any[];
+  etat:boolean=false;
 
-constructor(private _user: searchByUserNameService)
+
+   list:any =[];
+  save=new SavedResult();
+
+
+
+constructor(private _user: searchByUserNameService, private _save:SavedResultService)
 {
+
 
 }
   ngOnInit() {
 
-
     this.cols = [
-      { field: 'Status', header: 'Status' },
-      { field: '@Timestamp', header: '@Timestamp' }
+      { field: 'id', header: 'IDRequest' },
+      { field: 'RequestTime', header: 'RequestTime' },
 
     ];
+
+
   }
 
 getResult() {
-  this._user.searchByUserName(this.correlationID,this.userName)
-    .subscribe(res => {
-      console.log(res);
-      for (var i=0;i<res.length;i++){
-      this.ids =res[i];
 
-      console.log(this.ids);
-      this.request = this.ids.request;
-      this.requests.push(this.request);
-      this.response = this.ids.response;
-      this.responses.push( this.response);
-      console.log(this.responses[0]);
-      console.log(this.requests);
-      }
-      console.log(this.userName)
+  this._user.searchByUserName(this.correlationID,this.userName)
+
+    .subscribe(res => {
+      this.spinner=true;
+      this.ids=res;
+    // this. etat=true;
+      console.log(res);
+      this.spinner=false;
     })
+
+
+}
+saveResult() {
+
+
+
+  for (let r of this.selectedOne){
+    let re=new Result();
+
+    re.requestIndex=r.request.requestIndex
+    re.requestFilePath=r.request.requestFilePath
+    re.responseIndex=r.response.responseIndex
+    re.responseFilePath=r.response.responseFilePath
+     this.list.push(re);
+      console .log (this.list);
+  }
+ this. save.issueID=this.issueID;
+  this.save.results=this.list;
+  this._save.savedResult(this.save).subscribe(res=>{
+    console.log(res)
+  },err=>{
+    console.log(err)
+  });
+  console.log('saved');
+
+  this.msgs.push({severity:'success', summary:'success Message', detail:'Data Saved with success!'});
 
 }
 
 
   }
+
 
 
 

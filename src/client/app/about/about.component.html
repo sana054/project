@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
-
+<link rel="stylesheet" type="text/css" href="C:\Users\cheff\Desktop\project\node_modules\font-awesome\css\font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="C:\Users\cheff\Desktop\project\node_modules\primeng\resources\themes\omega\theme.scss" />
+<link rel="stylesheet" type="text/css" href="C:\Users\cheff\Desktop\project\node_modules\primeng\resources\primeng.css" />
 
 
 
@@ -40,55 +42,72 @@
 </div>-->
 
 <div>
+
   <h3>Results</h3>
 
-  <input id="input" type="text" size="30" pInputText >
-  <span id="text">IssueID</span><b></b><b></b><b></b><b></b><b></b><b></b><p-button  icon="fa fa-fw fa-check" label="Save"></p-button>
+  <input id="input" type="text" size="30" pInputText [(ngModel)]="issueID"  >
+  <span id="text">IssueID</span><b></b><b></b><b></b><b></b><b></b><b></b><p-button  icon="fa fa-fw fa-check" label="Save" (click)="saveResult()"></p-button>
 
-
-  <p-table [columns]="cols" [value]="requests" dataKey="vin" [(selection)]="selectedOne" >
+  <p-messages [(value)]="msgs"></p-messages>
+  <p-table  #dt [columns]="cols" [value]="ids" dataKey="request.id" [(selection)]="selectedOne"   [paginator]="true" [rows]="10" >
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+      </div>
+    </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th style="width: 2.25em">
+        <th width="8%">
           <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
         </th>
-        <th *ngFor="let col of columns">
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
           {{col.header}}
+          <p-sortIcon [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns" [ngSwitch]="col.field">
+          <input *ngSwitchCase="'id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded">
-      <tr  *ngFor="let r of requests" [pSelectableRow]="rowData">
-        <td>
-          <a href="#" [pRowToggler]="rowData">
-            <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
-          </a>
-        </td>
-        <td>
-          <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
-        </td>
+
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded" [pSelectableRow]="rowData">
+
+      <tr [pSelectableRow]="rowData" >
+
         <td >
-          {{ r.status}}
+          <p-tableCheckbox [value]="rowData"></p-tableCheckbox> <a href="#" [pRowToggler]="rowData">
+          <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+        </a>
+
         </td>
-        <td >
-          {{r.requestTime | date:'yyyy-MM-dd HH:mm a z':'+0100'}}
+
+        <td>
+          {{ rowData.request.id}}
+        </td>
+        <td>
+          {{ rowData.request.requestTime  | date:'yyyy-MM-dd HH:mm a z':'+0100'}}
         </td>
       </tr>
     </ng-template>
-    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" class="nothing">
-      <tr *ngFor="let r of requests">
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+      <tr>
         <td [attr.colspan]="columns.length + 1">
           <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+
             <div class="ui-g-12 ui-md-9">
               <div class="ui-g">
                 <div class="ui-g-12">
-                  <b>:ResponseContent</b>  {{ r.requestContent}}
+                  <b>Vin:</b> {{rowData.request.requestIndex}}
                 </div>
                 <div class="ui-g-12">
-                  <b>UserName:</b> {{ r.userName}}
+                  <b>Year:</b> {{rowData.request.requestFilePath}}
                 </div>
                 <div class="ui-g-12">
-                  <b>URL:</b> {{r.requestURL}}
+                  <b>Response:</b> {{rowData.response.responseContent}}
                 </div>
 
               </div>
@@ -99,8 +118,8 @@
     </ng-template>
     <ng-template pTemplate="summary">
       <ul>
-        <li *ngFor="let r of selectedOne" style="text-align: left">
-          {{r.userName }}
+        <li *ngFor="let car of selectedOne" style="text-align: left">
+          {{car.request.requestIndex+ ' - ' +car.request.requestFilePath+' - ' +car.response.responseIndex+' - ' +car.response.responseFilePath}}
         </li>
       </ul>
     </ng-template>

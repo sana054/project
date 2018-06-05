@@ -20,11 +20,17 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 })
 export class SearchComponent implements OnInit {
   ngOnInit(): void {
+    this.cols = [
+      { field: 'id', header: 'IDRequest' },
+      { field: 'RequestTime', header: 'RequestTime' },
+
+    ];
   }
 
-  userName :String;
+  IssueID :String;
   ids:any;
   response:any;
+  cols: any[];
 
 
 
@@ -42,19 +48,14 @@ export class SearchComponent implements OnInit {
 
 
   find() {
-    this._user.anySearch(this.userName)
-      .subscribe((res:any) => {
-        this.ids = res.map((res:any) => res);
+    this._user.anySearch(this.IssueID)
+      .subscribe(res => {
+
+        this.ids=res;
+        // this. etat=true;
         console.log(res);
-        this.response = res.map((res:any) => res.responseRequest);
-
-
-        console.log(this.response);
-        console.log(this.userName);
-
 
       })
-
   }
 
 
